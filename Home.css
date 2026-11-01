@@ -411,7 +411,7 @@ body {
 
 /* PHONE */
 
-@media (max-width: 450px) {
+@media (max-width: 480px) {
 
     .book {
         width: 94vw;
