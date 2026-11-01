@@ -1,0 +1,944 @@
+/* ============================= */
+/* RESET */
+/* ============================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background: linear-gradient(
+        135deg,
+        #ffd6e7,
+        #ffeef5,
+        #ffc1d9
+    );
+
+    font-family: Arial, sans-serif;
+    color: #555;
+
+    overflow-x: hidden;
+}
+
+
+/* ============================= */
+/* FALLING FLOWERS */
+/* ============================= */
+
+.snowflakes {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+    overflow: hidden;
+
+    z-index: 1;
+}
+
+.snowflakes span {
+    position: absolute;
+    top: -30px;
+
+    color: #ff69a4;
+    font-size: 20px;
+
+    opacity: 0.7;
+
+    animation: fallingSnow linear infinite;
+}
+
+.snowflakes span:nth-child(1) {
+    left: 5%;
+    animation-duration: 7s;
+}
+
+.snowflakes span:nth-child(2) {
+    left: 15%;
+    animation-duration: 9s;
+    animation-delay: 2s;
+}
+
+.snowflakes span:nth-child(3) {
+    left: 25%;
+    animation-duration: 6s;
+    animation-delay: 1s;
+}
+
+.snowflakes span:nth-child(4) {
+    left: 35%;
+    animation-duration: 8s;
+    animation-delay: 3s;
+}
+
+.snowflakes span:nth-child(5) {
+    left: 45%;
+    animation-duration: 10s;
+    animation-delay: 1s;
+}
+
+.snowflakes span:nth-child(6) {
+    left: 55%;
+    animation-duration: 7s;
+    animation-delay: 4s;
+}
+
+.snowflakes span:nth-child(7) {
+    left: 65%;
+    animation-duration: 9s;
+    animation-delay: 1s;
+}
+
+.snowflakes span:nth-child(8) {
+    left: 75%;
+    animation-duration: 6s;
+    animation-delay: 2s;
+}
+
+.snowflakes span:nth-child(9) {
+    left: 85%;
+    animation-duration: 8s;
+    animation-delay: 3s;
+}
+
+.snowflakes span:nth-child(10) {
+    left: 95%;
+    animation-duration: 10s;
+    animation-delay: 4s;
+}
+
+@keyframes fallingSnow {
+
+    0% {
+        transform:
+            translateY(-30px)
+            translateX(0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.7;
+    }
+
+    50% {
+        transform:
+            translateY(50vh)
+            translateX(-25px)
+            rotate(180deg);
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            translateX(25px)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+
+.memoryHeader {
+    position: relative;
+
+    z-index: 5;
+
+    text-align: center;
+
+    padding: 55px 20px 30px;
+}
+
+.headerHeart {
+    color: #e75480;
+
+    font-size: 35px;
+
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.memoryHeader h1 {
+    margin: 10px 0;
+
+    color: #e75480;
+
+    font-size: 42px;
+
+    text-shadow:
+        0 3px 8px rgba(231, 84, 128, 0.2);
+}
+
+.memoryHeader p {
+    margin: 0;
+
+    font-size: 17px;
+
+    color: #777;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+
+/* ============================= */
+/* MEMORY CONTAINER */
+/* ============================= */
+
+.memoryContainer {
+    position: relative;
+
+    z-index: 5;
+
+    width: 90%;
+    max-width: 900px;
+
+    margin: 0 auto 60px;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 45px 35px;
+
+    align-items: center;
+}
+
+
+/* ============================= */
+/* MEMORY CARDS */
+/* ============================= */
+
+.memoryCard {
+    background: #fff;
+
+    padding: 15px 15px 20px;
+
+    border-radius: 5px;
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.15);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.memoryCard:hover {
+    transform:
+        translateY(-8px)
+        scale(1.02);
+
+    box-shadow:
+        0 18px 35px rgba(231, 84, 128, 0.25);
+}
+
+
+/* Scrapbook rotations */
+
+.memoryCard:nth-child(1) {
+    transform: rotate(-3deg);
+}
+
+.memoryCard:nth-child(2) {
+    transform: rotate(3deg);
+}
+
+.memoryCard:nth-child(3) {
+    transform: rotate(-2deg);
+}
+
+.memoryCard:nth-child(4) {
+    transform: rotate(3deg);
+}
+
+
+/* ============================= */
+/* PHOTO FRAME */
+/* ============================= */
+
+.photoFrame {
+    width: 100%;
+
+    height: 350px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: #f8d7e2;
+
+    overflow: hidden;
+}
+
+.photoFrame img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    display: block;
+
+    transition: transform 0.5s ease;
+}
+
+.memoryCard:hover .photoFrame img {
+    transform: scale(1.03);
+}
+
+
+/* ============================= */
+/* CAPTIONS */
+/* ============================= */
+
+.caption {
+    margin: 15px 5px 0;
+
+    text-align: center;
+
+    color: #666;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* ============================= */
+/* MEMORY SIZES */
+/* ============================= */
+
+.memoryLarge {
+    grid-column: span 2;
+
+    width: 70%;
+
+    justify-self: center;
+}
+
+.memorySmall {
+    width: 100%;
+}
+
+
+/* ============================= */
+/* ENDING SECTION */
+/* ============================= */
+
+.memoryEnding {
+    grid-column: span 2;
+
+    text-align: center;
+
+    margin-top: 20px;
+
+    padding: 40px 25px;
+
+    background: rgba(255, 250, 252, 0.8);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 10px 30px rgba(231, 84, 128, 0.15);
+}
+
+.endingHeart {
+    color: #e75480;
+
+    font-size: 40px;
+
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.memoryEnding h2 {
+    margin: 12px 0;
+
+    color: #e75480;
+
+    font-size: 27px;
+}
+
+.memoryEnding p {
+    max-width: 600px;
+
+    margin: 0 auto 25px;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+}
+
+
+/* ============================= */
+/* LAST SURPRISE BUTTON */
+/* ============================= */
+
+#lastSurprise {
+    padding: 12px 24px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background: #e75480;
+
+    color: white;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+#lastSurprise:hover {
+    background: #d63f6d;
+
+    transform: scale(1.06);
+
+    box-shadow:
+        0 8px 20px rgba(231, 84, 128, 0.3);
+}
+
+
+/* ================================================= */
+/* FINAL SURPRISE OVERLAY */
+/* ================================================= */
+
+.finalOverlay {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(55, 10, 30, 0.75);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.5s ease,
+        visibility 0.5s ease;
+
+    z-index: 500;
+
+    padding: 20px;
+
+    overflow: hidden;
+}
+
+.finalOverlay.show {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* ============================= */
+/* CONFETTI */
+/* ============================= */
+
+.confetti-container {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 1;
+}
+
+.confetti-container span {
+    position: absolute;
+
+    top: -50px;
+
+    font-size: 25px;
+
+    animation:
+        finalConfetti 5s linear infinite;
+
+    opacity: 0;
+}
+
+.confetti-container span:nth-child(1) {
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.confetti-container span:nth-child(2) {
+    left: 15%;
+    animation-delay: 1s;
+}
+
+.confetti-container span:nth-child(3) {
+    left: 25%;
+    animation-delay: 2s;
+}
+
+.confetti-container span:nth-child(4) {
+    left: 35%;
+    animation-delay: 0.5s;
+}
+
+.confetti-container span:nth-child(5) {
+    left: 45%;
+    animation-delay: 1.5s;
+}
+
+.confetti-container span:nth-child(6) {
+    left: 55%;
+    animation-delay: 2.5s;
+}
+
+.confetti-container span:nth-child(7) {
+    left: 65%;
+    animation-delay: 0.8s;
+}
+
+.confetti-container span:nth-child(8) {
+    left: 75%;
+    animation-delay: 1.8s;
+}
+
+.confetti-container span:nth-child(9) {
+    left: 85%;
+    animation-delay: 3s;
+}
+
+.confetti-container span:nth-child(10) {
+    left: 95%;
+    animation-delay: 2.2s;
+}
+
+@keyframes finalConfetti {
+
+    0% {
+        transform:
+            translateY(-50px)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        transform:
+            translateY(50vh)
+            translateX(30px)
+            rotate(180deg);
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            translateX(-30px)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* ================================================= */
+/* FINAL SURPRISE CARD */
+/* ================================================= */
+
+.finalCard {
+    position: relative;
+
+    z-index: 2;
+
+    width: 500px;
+
+    max-width: 100%;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 45px 40px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fffafd,
+            #fff0f6
+        );
+
+    border-radius: 30px;
+
+    text-align: center;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.35),
+        0 0 45px rgba(255, 105, 164, 0.35);
+
+    transform:
+        scale(0.5)
+        translateY(60px);
+
+    transition:
+        transform 0.6s
+        cubic-bezier(0.17, 0.89, 0.32, 1.28);
+}
+
+.finalOverlay.show .finalCard {
+    transform:
+        scale(1)
+        translateY(0);
+}
+
+
+/* ============================= */
+/* FINAL CLOSE BUTTON */
+/* ============================= */
+
+.finalClose {
+    position: absolute;
+
+    top: 15px;
+    right: 17px;
+
+    width: 35px;
+    height: 35px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f8d7e2;
+
+    color: #e75480;
+
+    font-size: 23px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.finalClose:hover {
+    background: #e75480;
+
+    color: white;
+
+    transform: rotate(90deg);
+}
+
+
+/* ============================= */
+/* FINAL HEART */
+/* ============================= */
+
+.finalHeart {
+    font-size: 65px;
+
+    margin-bottom: 10px;
+
+    animation:
+        finalHeartBeat 1.3s
+        ease-in-out infinite;
+
+    filter:
+        drop-shadow(
+            0 5px 10px
+            rgba(231, 84, 128, 0.3)
+        );
+}
+
+@keyframes finalHeartBeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.18);
+    }
+}
+
+
+/* ============================= */
+/* FINAL TEXT */
+/* ============================= */
+
+.finalCard h2 {
+    margin: 5px 0 22px;
+
+    color: #e75480;
+
+    font-size: 30px;
+
+    text-shadow:
+        0 3px 8px
+        rgba(231, 84, 128, 0.15);
+}
+
+.finalCard p {
+    margin: 15px 0;
+
+    color: #666;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+.finalCard h3 {
+    margin: 25px 0 10px;
+
+    color: #e75480;
+
+    font-size: 21px;
+}
+
+
+/* ============================= */
+/* FINAL SIGNATURE */
+/* ============================= */
+
+.finalSignature {
+    margin-top: 18px;
+
+    color: #e75480;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    line-height: 1.6;
+}
+
+
+/* ================================================= */
+/* TABLET */
+/* ================================================= */
+
+@media (max-width: 750px) {
+
+    .memoryHeader {
+        padding-top: 40px;
+    }
+
+    .memoryHeader h1 {
+        font-size: 32px;
+    }
+
+    .memoryHeader p {
+        font-size: 14px;
+    }
+
+    .memoryContainer {
+        width: 88%;
+
+        gap: 30px 20px;
+    }
+
+    .memoryLarge {
+        width: 80%;
+    }
+
+    .caption {
+        font-size: 12px;
+    }
+
+    .memoryEnding {
+        padding: 30px 20px;
+    }
+
+    .memoryEnding h2 {
+        font-size: 22px;
+    }
+
+    .memoryEnding p {
+        font-size: 13px;
+    }
+
+    .photoFrame {
+        height: 300px;
+    }
+}
+
+
+/* ================================================= */
+/* PHONE */
+/* ================================================= */
+
+@media (max-width: 500px) {
+
+    .memoryHeader {
+        padding: 35px 15px 25px;
+    }
+
+    .headerHeart {
+        font-size: 28px;
+    }
+
+    .memoryHeader h1 {
+        font-size: 27px;
+    }
+
+    .memoryHeader p {
+        font-size: 12px;
+    }
+
+    .memoryContainer {
+        width: 88%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 30px;
+    }
+
+    .memoryCard,
+    .memoryLarge,
+    .memorySmall {
+        width: 90%;
+    }
+
+    .memoryCard:nth-child(1),
+    .memoryCard:nth-child(2),
+    .memoryCard:nth-child(3),
+    .memoryCard:nth-child(4) {
+        transform: rotate(-2deg);
+    }
+
+    .memoryCard:nth-child(even) {
+        transform: rotate(2deg);
+    }
+
+    .caption {
+        font-size: 11px;
+    }
+
+    .photoFrame {
+        height: 280px;
+    }
+
+    .memoryEnding {
+        width: 100%;
+
+        padding: 25px 15px;
+    }
+
+    .endingHeart {
+        font-size: 32px;
+    }
+
+    .memoryEnding h2 {
+        font-size: 19px;
+    }
+
+    .memoryEnding p {
+        font-size: 11px;
+
+        line-height: 1.5;
+    }
+
+    #lastSurprise {
+        padding: 9px 17px;
+
+        font-size: 11px;
+    }
+
+
+    /* Final surprise on phone */
+
+    .finalOverlay {
+        padding: 15px;
+    }
+
+    .finalCard {
+        width: 100%;
+
+        max-height: 88vh;
+
+        padding: 38px 22px 30px;
+
+        border-radius: 24px;
+    }
+
+    .finalHeart {
+        font-size: 48px;
+    }
+
+    .finalCard h2 {
+        font-size: 23px;
+
+        margin-bottom: 17px;
+    }
+
+    .finalCard p {
+        font-size: 12px;
+
+        line-height: 1.6;
+    }
+
+    .finalCard h3 {
+        font-size: 17px;
+    }
+
+    .finalSignature {
+        font-size: 11px;
+    }
+
+    .finalClose {
+        width: 30px;
+        height: 30px;
+
+        font-size: 19px;
+
+        top: 10px;
+        right: 12px;
+    }
+
+    .confetti-container span {
+        font-size: 18px;
+    }
+}
